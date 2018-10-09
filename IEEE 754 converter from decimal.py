@@ -20,8 +20,12 @@ def exponentToDecimal(n):
 
     return total
 
-def getIEEENumber(sign, exponent, significant):
-    sign = sign.replace(" ", "")
+def getIEEENumber(value):
+    value = value.replace(" ", "")
+    sign = value[0]
+    exponent = value[1:9]
+    significant = value[9:33]
+
     total = 1.
 
     exponent = exponentToDecimal(exponent)
@@ -33,7 +37,5 @@ def getIEEENumber(sign, exponent, significant):
         total = total * -1
     print(total)
 
-convertToDecimal("1000000")
-exponentToDecimal("1000 0000")
-getIEEENumber("0","01001001","01001100000000000000100")
-getIEEENumber("1","010 1111 1","011 1111 0000 00000000 0000")
+getIEEENumber("00100100101001100000000000000100")
+getIEEENumber("10101111101111110000000000000000")
